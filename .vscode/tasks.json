@@ -1,0 +1,35 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "create",
+        "type": "shell",
+        "command": "${workspaceFolder}/_scripts/create_leetcode_folders.sh",
+        "args": [
+          "${input:difficulty}",
+          "${input:folderName}"
+        ],
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "presentation": {
+          "reveal": "always"
+        },
+        "problemMatcher": []
+      }
+    ],
+    "inputs": [
+      {
+        "id": "difficulty",
+        "type": "promptString",
+        "description": "Enter difficulty (e.g., easy)"
+      },
+      {
+        "id": "folderName",
+        "type": "promptString",
+        "description": "Enter folder name"
+      }
+    ]
+  }
+  
