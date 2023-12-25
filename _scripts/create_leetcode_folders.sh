@@ -3,8 +3,8 @@
 # This script creates a folder structure for programming problems,
 # organized by difficulty, and copies a template Python file into the new folder.
 
-# Get the directory of the script
-script_dir="$(dirname "$(readlink -f "$0")")"
+# Get the current working directory
+base_path="$PWD"
 
 if [ $# -lt 2 ]; then
     echo "Usage: $0 <difficulty> <folder_name>" >&2
@@ -13,7 +13,7 @@ fi
 
 difficulty=$1
 folder_name=$2
-folder_path="$script_dir/problems/${difficulty}/${folder_name}"
+folder_path="$base_path/problems/${difficulty}/${folder_name}"
 lowercase_folder_name=$(echo "$folder_name" | tr '[:upper:]' '[:lower:]')
 
 # Function to convert a string to camel case
@@ -37,7 +37,7 @@ mkdir "$folder_path"
 touch "$folder_path/ProgressionNote.md"
 
 # Path to your template .py file
-template_py_file="$script_dir/.vscode/template.py"
+template_py_file="$base_path/.vscode/template.py"
 
 # Copy template file to the new Python file
 cp "$template_py_file" "$folder_path/${lowercase_folder_name}.py"
