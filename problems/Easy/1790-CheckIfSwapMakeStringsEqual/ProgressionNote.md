@@ -6,3 +6,5 @@ RC = O(2n) SC = O(n)
 SC = O(n)
 
 Can I make this better? TIL there is a `zip` iterator in python where one can iterate over multiple lists in one iteration. It puts each iteration in a tuple
+
+Time spent: 13 min
